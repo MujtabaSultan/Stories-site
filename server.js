@@ -6,11 +6,12 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-const isSignedIn = require("./middleware/is-signed-in");
-const passUserToView = require("./middleware/pass-user-to-view");
-require("./config/database");
+const isSignedIn = require("./middleware/is-signed");
+const passUserToView = require("./middleware/pass-to-view");
+require("./config/db");
 
 const authCtrl = require("./controllers/auth");
+const storyCtrl = require("./controllers/story-cntrl");
 
 const app = express();
 
@@ -28,6 +29,23 @@ app.use(
   })
 );
 
+app.use(passUserToView);
+
+// LINK TO PUBLIC DIRECTORY
+//app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  if (req.session.user) {
+    res.redirect(`/users/${req.session.user._id}/crud`);
+  } else {
+    res.render("index.ejs");
+  }
+});
+
+app.use("/auth", authCtrl);
+app.use(isSignedIn);
+app.use("/users/:userId/crud", storyCtrl);
+
 app.listen(3000, () => {
-  console.log(`The express app is ready on port ${port}!`);
+  console.log(`The express app is ready on port 3000!`);
 });
