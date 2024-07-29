@@ -51,21 +51,13 @@ router.post("/", async (req, res) => {
 router.get("/:crudId", async (req, res) => {
   try {
     const users = await User.find({});
-    const currentUser = await User.findById(req.session.user._id);
+    const currentUser = await User.findById(req.params.crudId);
     const stories = currentUser.stories.id(req.params.crudId);
-
-    const allStories = [];
-
-    currentUser.forEach((user) => {
-      user.stories.forEach((story) => {
-        allStories.push(story);
-      });
-    });
 
     res.render("crud/show.ejs", {
       stories,
       users,
-      allStories,
+      currentUser,
     });
   } catch (error) {
     console.log(error);
