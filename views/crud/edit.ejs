@@ -16,11 +16,11 @@
 
       <label for="genre">genre</label>
       <select name="genre" id="genre">
-        <option value="horror">horror</option>
-        <option value="drama">drama</option>
-        <option value="action">action</option>
-        <option value="adventure">adventure</option>
-        <option value="real-story">real-story</option>
+        <option value="horror" <%= story.genre === 'horror' ? 'selected' : '' %>>horror</option>
+        <option value="drama" <%= story.genre === 'drama' ? 'selected' : '' %>>drama</option>
+        <option value="action" <%= story.genre === 'action' ? 'selected' : '' %>>action</option>
+        <option value="adventure" <%= story.genre === 'adventure' ? 'selected' : '' %>>adventure</option>
+        <option value="real-story" <%= story.genre === 'real-story' ? 'selected' : '' %>>real-story</option>
       </select>
 
       <label for="editable">editable by others</label>

@@ -15,6 +15,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/view", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.render("crud/all.ejs", { users });
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 router.get("/new", async (req, res) => {
   res.render("crud/new.ejs");
 });
@@ -40,10 +50,22 @@ router.post("/", async (req, res) => {
 
 router.get("/:crudId", async (req, res) => {
   try {
+    const users = await User.find({});
     const currentUser = await User.findById(req.session.user._id);
     const stories = currentUser.stories.id(req.params.crudId);
+
+    const allStories = [];
+
+    currentUser.forEach((user) => {
+      user.stories.forEach((story) => {
+        allStories.push(story);
+      });
+    });
+
     res.render("crud/show.ejs", {
       stories,
+      users,
+      allStories,
     });
   } catch (error) {
     console.log(error);
