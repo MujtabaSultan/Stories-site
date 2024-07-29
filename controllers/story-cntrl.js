@@ -146,7 +146,6 @@ router.get("/:crudId/edit/public", async (req, res) => {
     const story = creater.stories.id(req.params.crudId);
     //formattedDate = currentUser.stories.date.toISOString().split("T")[0];
 
-  
     res.render("crud/editp.ejs", {
       story,
       // formattedDate,
@@ -159,16 +158,15 @@ router.get("/:crudId/edit/public", async (req, res) => {
 
 router.put("/:crudId/edit/public", async (req, res) => {
   try {
-    const currentUser = await User.findById(req.session.user._id);
-    req.body.date = new Date(req.body.date);
+    // const currentUser = await User.findById(req.session.user._id);
+    // await currentUser.stories.id(req.params.crudId).set(req.body);
 
-    if (req.body.editable === "on") {
-      req.body.editable = true;
-    } else {
-      req.body.editable = false;
-    }
-    await currentUser.stories.id(req.params.crudId).set(req.body);
-    await currentUser.save();
+    creater = await User.findOne({
+      stories: { $elemMatch: { _id: req.params.crudId } },
+    });
+    // const story = creater.stories.id(req.params.crudId);
+    await creater.stories.id(req.params.crudId).set(req.body);
+    await creater.save();
     res.redirect("/");
   } catch (error) {
     console.log(error);
