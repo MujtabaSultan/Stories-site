@@ -7,18 +7,18 @@
   </head>
   <body>
     <%- include('../../partials/navbar.ejs') %>
-    <h1>All stories</h1>
-
-    <a href="/users/<%= user._id %>/crud/new">Add a new story</a>
-
+    <h1>All Stories</h1>
+    <a href="/users/<%= currentUser._id %>/crud/new">Add a new story</a>
     <ul>
-      <%users.forEach(user =>{%> <%user.stories.forEach(story =>{%>
-
-      <li>
-        <a href="/users/<%=user._id%>/crud/<%= story.id %>"><%=story.name%></a>
-      </li>
-
-      <%})%> <%})%>
+      <% users.forEach(user => { %>
+        <% user.stories.forEach(story => { %>
+          <li>
+            <a href="/users/<%= user._id %>/crud/<%= story._id %>">
+              <%= story.name %>
+            </a>
+          </li>
+        <% }) %>
+      <% }) %>
     </ul>
   </body>
 </html>

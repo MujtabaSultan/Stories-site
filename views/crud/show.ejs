@@ -8,27 +8,35 @@
   </head>
   <body>
     <%- include('../../partials/navbar.ejs') %>
-    <h1></h1>
-
-    <h3>story name : <%=stories.name%></h3>
-    <br /><br /><br />
+    <h1>Story Details</h1>
+    <h3>Story name: <%= story.name %></h3>
     <ul>
-      <p>editable : <%=stories.editable%></p>
-      <p>story publish date : <%=stories.date%></p>
-      <p>story genre : <%=stories.genre%></p>
-      <p>the story :<br /><%=stories.content%></p>
+      <li>Publish date: <%= story.date.toISOString().split('T')[0] %></li>
+      <li>Genre: <%= story.genre %></li>
+      
     </ul>
-    <br />
-    <a href="/users/<%=user._id%>/crud/<%= stories._id %>/edit"
-      >edit the story</a
-    >
+    <p>the story : <%= story.content %></p>
+    <%if(compare1===compare2){%>
 
-    <br /><br />
+    <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit">Edit this story , as the creater</a>
+      <%}%>
+
+      <%if(story.editable){%>
+
+        <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit/public">Edit this story as a viewr</a>
+          <%}%>
+
+
+
+    
+    <%if(compare1===compare2){%>
+
     <form
-      action="/users/<%=user._id%>/crud/<%= stories._id %>?_method=DELETE"
+      action="/users/<%= user._id %>/crud/<%= story._id %>?_method=DELETE"
       method="POST"
     >
       <button type="submit">Delete story</button>
     </form>
+    <%}%>
   </body>
 </html>
