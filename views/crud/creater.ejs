@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <title>Your Stories</title>
+  </head>
+  <body>
+    <%- include('../../partials/navbar.ejs') %>
+    <h1><%= creater.username%></h1>
+
+    <p>age : <%= creater.age%></p>
+    <p>nationality: <%= creater.nationality%></p>
+
+    <ul>
+      <%stories.forEach(story =>{%>
+
+      <li>
+        <a href="/users/<%=creater._id%>/crud/<%= story._id %>"
+          ><%=story.name%></a
+        >
+      </li>
+
+      <%})%>
+    </ul>
+  </body>
+</html>

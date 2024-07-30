@@ -7,8 +7,12 @@
     <title>Your Stories</title>
   </head>
   <body>
+    
+
+    
     <%- include('../../partials/navbar.ejs') %>
     <h1>Story Details</h1>
+    <h3>Story created by : <a href="/users/<%= compare._id %>/crud/author"><%= compare.username %></a></h3>
     <h3>Story name: <%= story.name %></h3>
     <ul>
       <li>Publish date: <%= story.date.toISOString().split('T')[0] %></li>
@@ -34,7 +38,7 @@
 
       <%if(story.editable && no==false){%>
 
-        <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit/public">Edit this story as a viewr</a>
+        <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit/public">Edit this story as a viewer</a>
           <%}%>
 
     
@@ -43,8 +47,9 @@
     <form
       action="/users/<%= user._id %>/crud/<%= story._id %>?_method=DELETE"
       method="POST"
+      class="delete-form"
     >
-      <button type="submit">Delete story</button>
+      <button type="submit" class="delete-btn">Delete story</button>
     </form>
     <%}%>
   </body>

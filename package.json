@@ -4,7 +4,8 @@
   "description": "user \"author\" can view stories in the site , he can also create , update , delete the stories he makes , ill try to implement categories for the story for the user to select before creating his story , and ill also try to make a rating sections / comment sections.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
     "mongoose": "^8.5.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

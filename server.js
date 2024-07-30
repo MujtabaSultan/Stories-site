@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authCtrl);
 app.use(isSignedIn);
-app.use("/users/:userId/crud", storyCtrl);
+app.use("/users", storyCtrl);
 
 app.listen(3000, () => {
   console.log(`The express app is ready on port 3000!`);

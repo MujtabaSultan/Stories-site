@@ -3,7 +3,7 @@ const router = express.Router();
 
 const User = require("../models/user");
 
-router.get("/", async (req, res) => {
+router.get("/:userId/crud", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
 
@@ -16,10 +16,28 @@ router.get("/", async (req, res) => {
   }
 });
 
+//=====================================================
 
+// stuuf here are deletable
 
+router.get("/:userId/crud/author", async (req, res) => {
+  try {
+    const creater = await User.findById(req.params.userId);
 
-router.get("/view", async (req, res) => {
+    // console.log(`creater by  story` + createrbystory);
+    res.render("crud/creater.ejs", {
+      stories: creater.stories,
+      creater,
+    });
+  } catch (error) {
+    console.log(error);
+    // res.redirect("/");
+  }
+});
+
+//=====================================================
+
+router.get("/:userId/crud/view", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     const users = await User.find({});
@@ -30,11 +48,11 @@ router.get("/view", async (req, res) => {
   }
 });
 
-router.get("/new", async (req, res) => {
+router.get("/:userId/crud/new", async (req, res) => {
   res.render("crud/new.ejs");
 });
 
-router.post("/", async (req, res) => {
+router.post("/:userId/crud", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     req.body.date = new Date(req.body.date);
@@ -53,7 +71,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/:crudId", async (req, res) => {
+router.get("/:userId/crud/:crudId", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     let userWithStory;
@@ -72,8 +90,7 @@ router.get("/:crudId", async (req, res) => {
 
     compare1 = compare.id;
     compare2 = currentUser.id;
-    console.log(compare1);
-    console.log(compare2);
+
     // const creater = userWithStory.id;
 
     res.render("crud/show.ejs", {
@@ -82,6 +99,7 @@ router.get("/:crudId", async (req, res) => {
       currentUser,
       compare1,
       compare2,
+      compare,
       // creater,
     });
   } catch (error) {
@@ -90,7 +108,7 @@ router.get("/:crudId", async (req, res) => {
   }
 });
 
-router.delete("/:crudId", async (req, res) => {
+router.delete("/:userId/crud/:crudId", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     currentUser.stories.id(req.params.crudId).deleteOne();
@@ -102,7 +120,7 @@ router.delete("/:crudId", async (req, res) => {
   }
 });
 
-router.get("/:crudId/edit", async (req, res) => {
+router.get("/:userId/crud/:crudId/edit", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     if (req.params.userId == currentUser) {
@@ -121,7 +139,7 @@ router.get("/:crudId/edit", async (req, res) => {
   }
 });
 
-router.put("/:crudId/edit", async (req, res) => {
+router.put("/:userId/crud/:crudId/edit", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     req.body.date = new Date(req.body.date);
@@ -140,7 +158,7 @@ router.put("/:crudId/edit", async (req, res) => {
   }
 });
 
-router.get("/:crudId/edit/public", async (req, res) => {
+router.get("/:userId/crud/:crudId/edit/public", async (req, res) => {
   try {
     const currentUser = await User.findById(req.session.user._id);
     creater = await User.findOne({
@@ -159,7 +177,7 @@ router.get("/:crudId/edit/public", async (req, res) => {
   }
 });
 
-router.put("/:crudId/edit/public", async (req, res) => {
+router.put("/:userId/crud/:crudId/edit/public", async (req, res) => {
   try {
     // const currentUser = await User.findById(req.session.user._id);
     // await currentUser.stories.id(req.params.crudId).set(req.body);
@@ -170,7 +188,7 @@ router.put("/:crudId/edit/public", async (req, res) => {
     // const story = creater.stories.id(req.params.crudId);
     await creater.stories.id(req.params.crudId).set(req.body);
     await creater.save();
-    res.redirect("/");
+    res.redirect(`/users/${req.params.userId}/crud/${req.params.crudId}`);
   } catch (error) {
     console.log(error);
     res.redirect("/");
