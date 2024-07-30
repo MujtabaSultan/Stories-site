@@ -1,5 +1,15 @@
 const mongoose = require("mongoose");
 
+
+
+const commentSchema = new mongoose.Schema(
+  {
+    content: String,
+    author: String,
+  }
+
+ 
+);
 const storySchema = new mongoose.Schema(
   {
     name: String,
@@ -7,12 +17,11 @@ const storySchema = new mongoose.Schema(
     date: Date,
     content: String,
     editable: Boolean,
+    comments: [commentSchema],
   },
 
   { timestamps: true }
 );
-
-
 
 
 const userSchema = mongoose.Schema({

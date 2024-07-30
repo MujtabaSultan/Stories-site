@@ -52,5 +52,30 @@
       <button type="submit" class="delete-btn">Delete story</button>
     </form>
     <%}%>
+
+
+    <form
+    action="/users/<%= user._id %>/crud/<%= story._id %>/comments"
+    method="post"
+  >
+
+  <label for="content">comment :</label>
+      <input type="text" name="content" id="content" />
+
+
+    <button type="submit" class="commentBtn">post comment</button>
+  </form>
+
+<ul>
+  <% story.comments.forEach(comment=>{%>
+
+
+ <li>user: <%=comment.author%> <br> <%=comment.content%></li> 
+ <hr>
+
+<%})%>
+
+</ul>
+
   </body>
 </html>

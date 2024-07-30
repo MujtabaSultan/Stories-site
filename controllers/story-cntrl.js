@@ -195,4 +195,49 @@ router.put("/:userId/crud/:crudId/edit/public", async (req, res) => {
   }
 });
 
+
+router.post("/:userId/crud/:crudId/comments", async (req, res) => {
+  try {
+
+    const currentUser = await User.findById(req.session.user._id);
+    //const creater = await User.findById(req.params.userId);
+    
+    creater = await User.findOne({
+      stories: { $elemMatch: { _id: req.params.crudId } },
+    });
+storyToComment= creater.stories.id(req.params.crudId)
+
+
+    console.log(creater)
+    console.log("1----------------")
+    console.log(storyToComment)
+
+
+    if(req.body.content!==""){
+
+      const newComment = {
+      content: req.body.content,
+      author: currentUser.username,
+    };
+    console.log("2----------------")
+    console.log(newComment)
+
+    storyToComment.comments.push(newComment);
+
+
+    await creater.save();
+
+    res.redirect(`/users/${req.params.userId}/crud/${req.params.crudId}`);
+    }
+    else{
+
+      res.redirect(`/users/${req.params.userId}/crud/${req.params.crudId}`);
+    }
+    
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 module.exports = router;
