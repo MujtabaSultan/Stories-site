@@ -8,8 +8,12 @@ const storySchema = new mongoose.Schema(
     content: String,
     editable: Boolean,
   },
+
   { timestamps: true }
 );
+
+
+
 
 const userSchema = mongoose.Schema({
   username: {
