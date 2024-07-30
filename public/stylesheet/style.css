@@ -1,0 +1,142 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 20px;
+}
+
+/* Navbar styles */
+nav {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+nav a:hover {
+  background: #555;
+}
+
+/* Story list styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #fff;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Form styles */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #555;
+}
+
+/* Story details styles */
+.story-details h1 {
+  margin-bottom: 20px;
+}
+
+.story-details ul {
+  margin: 20px 0;
+}
+
+.story-details ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.story-details a {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.story-details a:hover {
+  background: #555;
+}
+
+
+
+.homepage h1 {
+  font-size: 2.5em;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.homepage p {
+  font-size: 1.2em;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+}

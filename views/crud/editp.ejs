@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>create story</title>
+    <link rel="stylesheet" href="/stylesheet/style.css" />    <title>create story</title>
   </head>
   <body>
     <h1>edit other users story</h1>
 
     <form action="/users/<%=user._id%>/crud/<%= story._id %>/edit/public?_method=PUT" method="POST">
       <label for="name">name</label>
-      <input type="text" name="name" id="name" value="<%=story.name%>" />
+      <input type="text" name="name" id="name" value="<%=story.name%>" required />
 
       <label for="genre">genre</label>
-      <select name="genre" id="genre">
+      <select name="genre" id="genre" required>
         <option value="horror" <%= story.genre === 'horror' ? 'selected' : '' %>>horror</option>
         <option value="drama" <%= story.genre === 'drama' ? 'selected' : '' %>>drama</option>
         <option value="action" <%= story.genre === 'action' ? 'selected' : '' %>>action</option>
@@ -24,7 +23,7 @@
 
 
       <label for="content">content</label>
-      <textarea name="content" id="content"><%=story.content%></textarea>
+      <textarea name="content" id="content" required><%=story.content%></textarea>
 
       <button type="submit">save changes</button>
     </form>

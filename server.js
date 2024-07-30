@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const isSignedIn = require("./middleware/is-signed");
+const path = require("path"); 
 const passUserToView = require("./middleware/pass-to-view");
 require("./config/db");
 
@@ -31,8 +32,7 @@ app.use(
 
 app.use(passUserToView);
 
-// LINK TO PUBLIC DIRECTORY
-//app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   if (req.session.user) {
