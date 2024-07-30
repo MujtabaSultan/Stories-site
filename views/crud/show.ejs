@@ -16,17 +16,26 @@
       
     </ul>
     <p>the story : <%= story.content %></p>
-    <%if(compare1===compare2){%>
 
-    <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit">Edit this story , as the creater</a>
+
+
+   
+
+<%let no = false%>
+
+
+
+ <%if(compare1===compare2){%>
+<%no = true%>
+
+    <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit/public">Edit this story , as the creater</a>
       <%}%>
 
-      <%if(story.editable){%>
+
+      <%if(story.editable && no==false){%>
 
         <a href="/users/<%= compare1 %>/crud/<%= story._id %>/edit/public">Edit this story as a viewr</a>
           <%}%>
-
-
 
     
     <%if(compare1===compare2){%>
