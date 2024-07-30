@@ -8,13 +8,13 @@
 
   </head>
   <body>
-    <h1>Sign up</h1>
-    <form action="/auth/sign-up" method="POST">
+    <h1 class="sign-up">Sign up</h1>
+    <form action="/auth/sign-up" method="POST" class="sign-upForm">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" required />
 
       <label for="password">Password:</label>
-      <input type="password" name="password" id="password" required />
+      <input type="password" name="password" id="password" required class="password"/>
 
       <label for="password">Confirm Password:</label>
       <input
@@ -22,14 +22,15 @@
         name="confirmPassword"
         id="confirmPassword"
         required
+        class="confirmPassword"
       />
 
       <label for="age">age:</label>
-      <input type="number" name="age" id="age" required />
+      <input type="number" name="age" id="age" required class="age" />
 
       <label for="nationality">nationality:</label>
       <input type="text" name="nationality" id="nationality" required />
-      <button type="submit">Sign up</button>
+      <button type="submit" class="sign-upBtn">Sign up</button>
     </form>
   </body>
 </html>

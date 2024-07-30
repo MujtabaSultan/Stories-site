@@ -7,13 +7,13 @@
   </head>
   <body>
     <%- include('../../partials/navbar.ejs') %>
-    <h1>Add a New story</h1>
+    <h1 class="add">Add a New story</h1>
 
-    <form action="/users/<%= user._id %>/crud" method="POST">
-      <label for="name">name</label>
+    <form action="/users/<%= user._id %>/crud" method="POST" class="addForm">
+      <label for="name">name:</label>
       <input type="text" name="name" id="name" required />
 
-      <label for="genre">genre</label>
+      <label for="genre">genre:</label>
       <select name="genre" id="genre" required>
         <option value="horror">horror</option>
         <option value="drama">drama</option>
@@ -22,13 +22,13 @@
         <option value="real-story">real-story</option>
       </select>
 
-      <label for="editable">editable by others</label>
+      <label for="editable">editable by others:</label>
       <input type="checkbox" name="editable" id="editable" />
 
-      <label for="date">Date</label>
+      <label for="date">Date:</label>
       <input type="date" name="date" id="date" required />
 
-      <label for="content">content</label>
+      <label for="content">content:</label>
       <textarea name="content" id="content" required></textarea>
 
       <button type="submit">Add a story</button>

@@ -8,7 +8,7 @@
   <body>
     <h1>edit other users story</h1>
 
-    <form action="/users/<%=user._id%>/crud/<%= story._id %>/edit/public?_method=PUT" method="POST">
+    <form action="/users/<%=user._id%>/crud/<%= story._id %>/edit/public?_method=PUT" method="POST" class="editForm">
       <label for="name">name</label>
       <input type="text" name="name" id="name" value="<%=story.name%>" required />
 

@@ -144,3 +144,65 @@ form button:hover {
 .delete-btn {
   margin-left: 0px;
 }
+.add {
+  text-align: center;
+}
+
+.addForm {
+  width: 600px;
+  margin: 0 auto;
+}
+.sign-in {
+  text-align: center;
+}
+.sign-inForm {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.sign-up {
+  text-align: center;
+}
+.sign-upForm {
+  width: 600px;
+  margin: 0 auto;
+}
+.sign-upBtn {
+  margin: 0 auto;
+}
+.confirmPassword {
+  width: 560px;
+  height: 40px;
+  border: solid 0.5px black;}
+
+#password {
+  width: 560px;
+  height: 40px;
+  border: solid 0.5px black;
+}
+
+.age {
+  width: 560px;
+  height: 40px;
+  border: solid 0.5px black;
+}
+#username{
+  border: solid 0.5px black;
+}
+#nationality{
+  border: solid 0.5px black;
+}
+
+.sign-inBtn{
+
+  margin-top: 10px;
+  
+}
+
+.editForm {
+  width: 800px;
+  margin: 0 auto;
+}
+#content{
+  height: 200px;
+}
