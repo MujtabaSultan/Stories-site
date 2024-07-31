@@ -218,9 +218,8 @@ storyToComment= creater.stories.id(req.params.crudId)
       const newComment = {
       content: req.body.content,
       author: currentUser.username,
+      authId: currentUser.id,
     };
-    console.log("2----------------")
-    console.log(newComment)
 
     storyToComment.comments.push(newComment);
 

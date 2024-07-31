@@ -6,6 +6,7 @@ const commentSchema = new mongoose.Schema(
   {
     content: String,
     author: String,
+    authId:String,
   }
 
  

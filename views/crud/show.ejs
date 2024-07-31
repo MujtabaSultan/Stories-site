@@ -70,7 +70,7 @@
   <% story.comments.forEach(comment=>{%>
 
 
- <li>user: <%=comment.author%> <br> <%=comment.content%></li> 
+ <li>user: <a href="/users/<%= comment.authId %>/crud/author"> <%=comment.author%></a> <br> <%=comment.content%></li> 
  <hr>
 
 <%})%>
