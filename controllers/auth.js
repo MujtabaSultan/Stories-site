@@ -22,7 +22,7 @@ router.post("/sign-up", async (req, res) => {
     // Check if the username is already taken
     const userInDatabase = await User.findOne({ email: req.body.email });
     if (userInDatabase) {
-      return res.send("Username already taken.");
+      return res.send("error in creating the account.");
     }
 
     // Username is not taken already!

@@ -1,5 +1,5 @@
 # stories site
-
+### date : 2024/7/31
 ## site description :
 
 user "author" can view stories in the site , he can also create , update , delete the stories he creates , and also will have the option to let other user edit hisown story or edit other user stories who have that option enabled , the user could also make comments on the stories whether its his story or others.
