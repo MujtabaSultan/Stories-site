@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -76,6 +77,7 @@ form select {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
+  vertical-align: top; /* Align text to the top */
 }
 
 form button {
@@ -131,9 +133,10 @@ form button:hover {
   text-align: center;
   margin-top: 10px;
 }
+
 .delete-form {
   background-color: transparent;
-  border: 0px black solid;
+  border: 0;
   display: flex;
   justify-content: left;
   padding: 0;
@@ -142,8 +145,15 @@ form button:hover {
 }
 
 .delete-btn {
-  margin-left: 0px;
+  margin-left: 0;
+  background: #ff4d4d;
+  color: #fff;
 }
+
+.delete-btn:hover {
+  background: #ff3333;
+}
+
 .add {
   text-align: center;
 }
@@ -152,9 +162,11 @@ form button:hover {
   width: 600px;
   margin: 0 auto;
 }
+
 .sign-in {
   text-align: center;
 }
+
 .sign-inForm {
   width: 600px;
   margin: 0 auto;
@@ -163,17 +175,21 @@ form button:hover {
 .sign-up {
   text-align: center;
 }
+
 .sign-upForm {
   width: 600px;
   margin: 0 auto;
 }
+
 .sign-upBtn {
   margin: 0 auto;
 }
+
 .confirmPassword {
   width: 560px;
   height: 40px;
-  border: solid 0.5px black;}
+  border: solid 0.5px black;
+}
 
 #password {
   width: 560px;
@@ -186,23 +202,62 @@ form button:hover {
   height: 40px;
   border: solid 0.5px black;
 }
-#username{
-  border: solid 0.5px black;
-}
-#nationality{
+
+#username,
+#nationality {
   border: solid 0.5px black;
 }
 
-.sign-inBtn{
-
+.sign-inBtn {
   margin-top: 10px;
-  
 }
 
 .editForm {
   width: 800px;
   margin: 0 auto;
 }
-#content{
+
+#content {
   height: 200px;
+  vertical-align: top; /* Align text to the top */
+}
+
+/* Comment section specific styles */
+form.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+form.comment-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  vertical-align: top; /* Align text to the top */
+}
+
+form.comment-form button {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form.comment-form button:hover {
+  background: #555;
+}
+
+
+.comment-form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  vertical-align: top; /* Ensures text aligns to the top */
+  line-height: 1.2; /* Adjusts the line height to better align text */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
