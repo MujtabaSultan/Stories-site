@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/stylesheet/style.css" />
   </head>
   <body>
+    <%- include('../../partials/navbar.ejs') %>
     <h1 class="sign-in">Sign in</h1>
     <form action="/auth/sign-in" method="POST" class="sign-inForm">
       <label for="email">Email:</label>
@@ -14,6 +15,6 @@
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" required />
       <button type="submit" class="sign-inBtn">Sign in</button>
-    </form>
+   
   </body>
 </html>
