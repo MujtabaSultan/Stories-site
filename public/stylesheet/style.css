@@ -148,6 +148,7 @@ form button:hover {
   margin-left: 0;
   background: #ff4d4d;
   color: #fff;
+  margin-bottom: 10px;
 }
 
 .delete-btn:hover {
@@ -189,23 +190,35 @@ form button:hover {
   width: 560px;
   height: 40px;
   border: solid 0.5px black;
+  border-radius: 2px;
 }
 
 #password {
   width: 560px;
   height: 40px;
   border: solid 0.5px black;
+  border-radius: 2px;
+}
+#email {
+  width: 560px;
+  height: 40px;
+  border: solid 0.5px black;
+  border-radius: 2px;
 }
 
 .age {
   width: 560px;
   height: 40px;
   border: solid 0.5px black;
+  border-radius: 2px;
 }
 
 #username,
 #nationality {
+  width: 560px;
+  height: 40px;
   border: solid 0.5px black;
+  border-radius: 2px;
 }
 
 .sign-inBtn {
@@ -250,7 +263,6 @@ form.comment-form button:hover {
   background: #555;
 }
 
-
 .comment-form input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -260,4 +272,7 @@ form.comment-form button:hover {
   vertical-align: top; /* Ensures text aligns to the top */
   line-height: 1.2; /* Adjusts the line height to better align text */
   box-sizing: border-box; /* Ensures padding is included in the width */
+}
+.edit-story {
+  text-align: center;
 }
