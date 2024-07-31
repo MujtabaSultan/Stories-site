@@ -77,7 +77,7 @@ form select {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  vertical-align: top; /* Align text to the top */
+  vertical-align: top; 
 }
 
 form button {
@@ -232,10 +232,9 @@ form button:hover {
 
 #content {
   height: 200px;
-  vertical-align: top; /* Align text to the top */
+  vertical-align: top; 
 }
 
-/* Comment section specific styles */
 form.comment-form {
   display: flex;
   flex-direction: column;
@@ -247,7 +246,7 @@ form.comment-form input[type="text"] {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  vertical-align: top; /* Align text to the top */
+  vertical-align: top;
 }
 
 form.comment-form button {
@@ -269,9 +268,9 @@ form.comment-form button:hover {
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 5px;
-  vertical-align: top; /* Ensures text aligns to the top */
-  line-height: 1.2; /* Adjusts the line height to better align text */
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  vertical-align: top;
+  line-height: 1.2; 
+  box-sizing: border-box; 
 }
 .edit-story {
   text-align: center;
