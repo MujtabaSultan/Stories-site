@@ -8,11 +8,14 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const isSignedIn = require("./middleware/is-signed");
 const path = require("path"); 
+
 const passUserToView = require("./middleware/pass-to-view");
 require("./config/db");
 
 const authCtrl = require("./controllers/auth");
 const storyCtrl = require("./controllers/story-cntrl");
+
+const port = process.env.PORT ? process.env.PORT : '3000';
 
 const app = express();
 
@@ -46,6 +49,6 @@ app.use("/auth", authCtrl);
 app.use(isSignedIn);
 app.use("/users", storyCtrl);
 
-app.listen(3000, () => {
-  console.log(`The express app is ready on port 3000!`);
+app.listen(port, () => {
+  console.log(`The express app is ready on port ${port}!`);
 });
