@@ -24,6 +24,10 @@ router.post("/sign-up", async (req, res) => {
     if (userInDatabase) {
       return res.send("error in creating the account.");
     }
+    const userInDatabasee = await User.findOne({ username: req.body.username });
+    if (userInDatabasee) {
+      return res.send("pick other username.");
+    }
 
     // Username is not taken already!
     // Check if the password and confirm password match
