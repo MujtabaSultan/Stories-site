@@ -76,8 +76,11 @@ the user will be taken to the homepage , the user will need to sign up first , s
 
 ### Future enhancments:
 
-- [ ]implementing rating for stories
-- [ ]implementing sorting by categories
+- [ ] (implementing rating for stories)
+- [ ] (implementing sorting by categories)
+- [ ] (adding media query to the css to make it more appropiate for different screen sizes)
+
+
 
 
 ### credits :
